@@ -1,31 +1,40 @@
 #include "libft.h"
 
-size_t ft_strlcpy(char * restrict dst, const char * restrict src, size_t dstsize)
-{
-    int i;
+// char *ft_strtrim(char const *s1, char const *set)
+// {
+//     int i;
+//     int j;
+//     int len1;
+//     char *src;
 
-    i = 0;
-    if (dstsize)
-    {
-        while(src[i] != '\0' && i < dstsize - 1)
-        {
-            dst[i] = src[i];
-            i++;
-        }
-        dst[i] = '\0';
-    }
-    return (ft_strlen(src));
-}
-
-#include <stdio.h>
-#include <string.h>
-
-int main()
-{
-    char src[] = "oussama1";
-    char dst[] = "vvdfbsgs";
-    printf("%lu", strlcpy(dst, src, 3));
-    char src1[] = "oussama1";
-    char dst1[] = "svsdvsa";
-    printf("\n%lu", ft_strlcpy(dst1, "thx to ntoniolo for this test !", 3));
-}
+//     len1 = ft_strlen(s1);
+//     src = (char *)malloc(sizeof(char) * len1 + 1);
+//     i = 0;
+//     if (!s1)
+//         return (NULL);
+//     if (!(src = (char *)malloc(sizeof(char) * (len1 + 1))))
+//         return (NULL);
+//     while ((s1[i] < 14 && s1[i] > 8) || s1[i] == 32)
+//       i++;
+//     i--;
+//     j = 0;
+//     while (s1[++i])
+//     {
+//       if ((s1[i] < 14 && s1[i] > 8) || s1[i] == 32)
+//         i++;
+//       else
+//       {
+//         src[j] = s1[i];
+//         j++;
+//       }
+//     }
+//     src[j] = '\0';
+//     return (src);
+// }
+// #include <stdio.h>
+// int main()
+// {
+//     char s1[] = "\t   \n\n\n  \n\n\t    Hello \t  Please\n Trim me !\t\t\t\n  \t\t\t\t  ";
+//     char s2[] = "Hello \t  Please\n Trim me !";
+//     printf("%s\n", ft_strtrim(s1, s2));
+// }

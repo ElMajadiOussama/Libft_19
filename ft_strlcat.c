@@ -28,10 +28,10 @@ size_t  ft_strlcat(char *dest, const char *src, size_t size)
     size_t          size_dest;
     size_t          size_src;
 
-    i = 0;
-    j = ft_strlen(dest);
-    if (size == 0 && !dest)
+    i = 0; 
+    if (size == 0)
         return (NULL);
+    j = ft_strlen(dest);
     size_dest = ft_strlen(dest);
     size_src = ft_strlen(src);
     if (size < 1 || size < size_dest)
