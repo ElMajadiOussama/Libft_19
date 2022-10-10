@@ -13,12 +13,11 @@ char *ft_strtrim(char const *s1, char const *set)
         size_s--;
     newstring = ft_substr((char*)s1, 0, size_s + 1);
     return (newstring);
-    
 }
 #include <stdio.h>
 int main()
 {
-    char s1[] = "dABjeBA";
-    char s2[] = "AB";
+    char s1[] = "   Hello zorld b ";
+    char s2[] = " ";
     printf("%s\n", ft_strtrim(s1, s2));
 }
