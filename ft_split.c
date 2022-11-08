@@ -1,38 +1,111 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ouel-maj <ouel-maj@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/08 16:48:41 by ouel-maj          #+#    #+#             */
+/*   Updated: 2022/11/08 17:15:52 by ouel-maj         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-int count_world(char s, char c)
+static int	ft_count_words(const char *s, char c)
 {
-    // int i;
+	int	i;
+	int	words_tot;
 
-    // i = 0;
-    // while (s[i])
-    // {
-        if (s == c)
-            return (1);
-        else
-            return (0);
-        // i++;
-    // }
+	i = 0;
+	words_tot = 0;
+	while (s[i])
+	{
+		if (s[i] != c && (s[i + 1] == c || s[i + 1] == '\0'))
+			words_tot++;
+		i++;
+	}
+	return (words_tot);
 }
 
-char **ft_split(char const *s, char c)
+static size_t	ft_size_words(const char *s, char c, int word, int *i)
 {
-    int i;
-    int j;
+	size_t	j;
 
-    i = 0;
-    while (*s)
-    {
-        while (count_world(s, c) == 1)
-          i++;
-        j = 0;
-        while (count_world(s, c) == 0)
-            j++;
-
-    }
+	*i = 0;
+	j = 0;
+	if (s[0] != c)
+		word--;
+	while (s[*i] && word > 0)
+	{
+		if (s[*i] == c && (s[(*i) + 1] != c && s[(*i) + 1] != '\0'))
+		{
+			word--;
+		}
+		(*i)++;
+	}
+	while (!word && (s[(*i) + j] != c && s[(*i) + j]))
+		j++;
+	return (j);
 }
 
-int main()
+static char	*ft_write_words(const char *s, char *matrix, char c, int i)
 {
-    printf(ft_splitf("je suis au sl", " "));
+	int	j;
+
+	j = 0;
+	while (s[i + j] != c && s[i + j])
+	{
+		matrix[j] = s[i + j];
+		j++;
+	}
+	matrix[j] = '\0';
+	return (matrix);
+}
+
+static char	*ft_matrix(const char *s, char c, char **matrix, int word)
+{
+	int	k;
+	int	i;
+
+	i = 0;
+	k = 0;
+	matrix[word] = malloc(sizeof(*matrix[word])
+			* ft_size_words(s, c, word + 1, &i) + 1);
+	if (!matrix[word])
+	{
+		while (k < word)
+		{
+			free(matrix[k]);
+			k++;
+		}
+		free(matrix);
+		return (NULL);
+	}
+	matrix[word] = ft_write_words(s, matrix[word], c, i);
+	return (matrix[word]);
+}
+
+char	**ft_split(const char *s, char c)
+{	
+	int		words_tot;
+	int		word;
+	char	**matrix;
+
+	if (!s)
+		return (NULL);
+	word = 0;
+	words_tot = ft_count_words(s, c);
+	matrix = malloc(sizeof(*matrix) * (words_tot + 1));
+	if (!matrix)
+		return (NULL);
+	while (word < words_tot)
+	{
+		matrix[word] = ft_matrix(s, c, matrix, word);
+		if (!matrix[word])
+			return (NULL);
+		word++;
+	}
+	matrix[word] = NULL;
+	return (matrix);
 }

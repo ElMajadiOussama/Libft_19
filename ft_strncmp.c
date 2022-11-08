@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ouel-maj <ouel-maj@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/08 15:13:01 by ouel-maj          #+#    #+#             */
+/*   Updated: 2022/11/08 16:22:04 by ouel-maj         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-int ft_strncmp(const char *s1, const char *s2, size_t n)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	unsigned int	i;
 	unsigned char	*b1;
@@ -8,15 +20,14 @@ int ft_strncmp(const char *s1, const char *s2, size_t n)
 
 	b1 = (unsigned char *)s1;
 	b2 = (unsigned char *)s2;
-
 	i = 0;
 	if (n == 0)
 		return (0);
-    while((b1[i] == b2[i]) && (i < n - 1) && (b1[i] || b2[i]))
-    {
-        i++;
-    }
-    return (b1[i] - b2[i]);
+	while ((b1[i] == b2[i]) && (i < n - 1) && (b1[i] || b2[i]))
+	{
+		i++;
+	}
+	return (b1[i] - b2[i]);
 }
 // #include <stdio.h>
 // #include <string.h>

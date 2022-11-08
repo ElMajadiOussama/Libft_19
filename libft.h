@@ -1,14 +1,30 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   libft.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ouel-maj <ouel-maj@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/08 16:11:19 by ouel-maj          #+#    #+#             */
+/*   Updated: 2022/11/08 17:16:50 by ouel-maj         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef LIBFT_H
 # define LIBFT_H
 
-#include <stdlib.h>
-#include <unistd.h>
-#include <string.h>
-#include <stdlib.h>
+# include	<stdlib.h>
+# include	<unistd.h>
+
+typedef struct s_list
+{
+	void			*content;
+	struct s_list	*next;
+}			t_list;
 
 size_t	ft_strlen(const char *str);
 size_t	ft_strlcat(char *dest, const char *src, size_t dstsize);
-size_t  ft_strlcpy (char *dst, const char *src, size_t dstsize);
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
@@ -34,9 +50,17 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
 char	*ft_strdup(const char *s1);
 
-char *ft_substr(char const *s, unsigned int start, size_t len);
-char *ft_strjoin(char const *s1, char const *s2);
-char *ft_strtrim(char const *s1, char const *set);
-char **ft_split(char const *s, char c);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
+char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_strtrim(char const *s1, char const *set);
+char	**ft_split(char const *s, char c);
+void	ft_striteri(char *s, void (*f)(unsigned int, char*));
+
+void	ft_putchar_fd(char c, int fd);
+void	ft_putstr_fd(char *s, int fd);
+void	ft_putendl_fd(char *s, int fd);
+
+void	ft_lstadd_back(t_list **lst, t_list *new);
+void	ft_lstdelone(t_list *lst, void (*del)(void*));
 
 #endif

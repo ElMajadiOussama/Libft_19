@@ -1,11 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ouel-maj <ouel-maj@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/08 15:12:58 by ouel-maj          #+#    #+#             */
+/*   Updated: 2022/11/08 16:50:50 by ouel-maj         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
-size_t ft_strlen( const char * str)
+
+size_t	ft_strlen( const char *str)
 {
-    size_t i;
+	size_t	i;
 
-
-    i = 0;
-    while(str[i] != '\0')
-        i++;
-    return (i);
+	i = 0;
+	while (str[i] != '\0')
+		i++;
+	return (i);
 }
