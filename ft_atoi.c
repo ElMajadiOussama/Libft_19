@@ -6,7 +6,7 @@
 /*   By: ouel-maj <ouel-maj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 14:57:28 by ouel-maj          #+#    #+#             */
-/*   Updated: 2022/11/08 17:11:00 by ouel-maj         ###   ########.fr       */
+/*   Updated: 2022/11/16 12:24:52 by ouel-maj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,12 @@ int	ft_atoi(const char *str)
 		overflow(sign);
 	return (res * sign);
 }
-/*
-#include <stdio.h>
-int main()
-{
-	char str[] = " -++1234ab567";
-	printf("%d", ft_atoi(str));
-}
-*/
+
+// #include <stdio.h>
+// int main()
+// {
+// 	char str[] = " -9223372036854775830";
+// 	printf("%d", ft_atoi(str));
+// 	printf("\n%d", atoi(str));
+
+// }

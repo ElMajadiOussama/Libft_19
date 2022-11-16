@@ -6,7 +6,7 @@
 /*   By: ouel-maj <ouel-maj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 15:11:59 by ouel-maj          #+#    #+#             */
-/*   Updated: 2022/11/08 15:51:08 by ouel-maj         ###   ########.fr       */
+/*   Updated: 2022/11/16 12:28:02 by ouel-maj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 			len--;
 		}
 	}
-	else
+	else if (dst < src)
 	{
 		while (i < len)
 		{

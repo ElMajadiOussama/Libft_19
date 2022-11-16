@@ -6,7 +6,7 @@
 /*   By: ouel-maj <ouel-maj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 15:11:14 by ouel-maj          #+#    #+#             */
-/*   Updated: 2022/11/08 17:16:30 by ouel-maj         ###   ########.fr       */
+/*   Updated: 2022/11/16 10:42:58 by ouel-maj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,4 +54,12 @@ char	*ft_itoa(int n)
 		n /= 10;
 	}
 	return (res);
+}
+#include <stdio.h>
+int main()
+{
+    int n;
+
+    n = 123;
+    printf("%d", ft_itoa(n));
 }
